@@ -8,7 +8,7 @@ class App extends Component {
       count: 1
     });
   }
-  // 默认请求，只有这个请求完成了，才会渲染此组件
+  // 可选：默认请求，只有这个请求完成了，才会渲染此组件
   static autoActions = [
     {
       name: 'state1/add',
@@ -17,8 +17,9 @@ class App extends Component {
       }
     }
   ]
+  // 可选
   static startRequest() {
-    return <div>可选： 当autuRequest 设置的时候，前置进行请求的时候显示的内容</div>
+    return <div>可选： 当autoActions 设置的时候，进行请求的时候，组件未被渲染的时候显示的内容</div>
   }
   setUrlParam() {
     this.props.dispatch('state1/changeUrlParam', {

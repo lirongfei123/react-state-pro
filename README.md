@@ -1,12 +1,16 @@
 react-state-pro
 ### Usage
 ### 安装
+```
 npm install react-state-pro --save
+```
 ### 运行 example
+```
 cd react-state-pro && npm install
 cd react-state-pro/example && npm install
 npm install global-create-react
 npm start
+```
 ### 编写store配置
 ```
 config['state1'] = export default {
@@ -50,8 +54,8 @@ export {Provider, connect};
 ```
 ### 首页，以及子组件配置
 #### 首页
-import { Provider } from './createStore';
 ```
+import { Provider } from './createStore';
 ReactDOM.render(
     <Provider>
         <Router history={history}>

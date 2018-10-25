@@ -5,6 +5,7 @@ class Com extends Component {
   static requireProps = {
     urlParam: PropTypes.string.isRequired
   }
+  // 可选
   static typeError(props) {
     return <div>可选： 这里是自定义的内容，当必选参数不满足要求的时候，显示此内容，传入参数：{JSON.stringify(props)}</div>
   }
