@@ -11,10 +11,9 @@ const config = {
   external: ['react'],
   output: {
     format: 'umd',
-    name: 'ReactRedux',
+    name: 'ReactStatePro',
     globals: {
-      react: 'React',
-      redux: 'Redux'
+      react: 'React'
     }
   },
   plugins: [
