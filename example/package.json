@@ -1,0 +1,14 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "react-start",
+  "scripts": {
+    "start": "gcr start"
+  },
+  "dependencies": {
+    "history": "^4.7.2",
+    "prop-types": "^15.6.2",
+    "react-router": "^4.3.1",
+    "react-state-pro": "^1.0.4"
+  }
+}
