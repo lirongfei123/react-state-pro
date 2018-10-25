@@ -1,6 +1,6 @@
 {
   "name": "react-state-pro",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "简单好用，强大的各种redux工具替代品",
   "keywords": [
     "react",
@@ -14,9 +14,9 @@
   ],
   "license": "MIT",
   "author": "李荣平 <rongping.lrp@gamil.com> (https://github.com/lirongfei123)",
-  "homepage": "https://gitee.com/lirongfei/react-state-pro",
+  "homepage": "https://github.com/lirongfei123/react-state-pro",
   "repository": "github:lirongfei/react-state-pro",
-  "bugs": "https://gitee.com/lirongfei/react-state-pro/issues",
+  "bugs": "https://github.com/lirongfei123/react-state-pro/issues",
   "main": "./lib/index.js",
   "unpkg": "dist/react-state-pro.js",
   "module": "es/index.js",
