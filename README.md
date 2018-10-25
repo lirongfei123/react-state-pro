@@ -37,8 +37,9 @@ config['state1'] = export default {
 }
 export default config;
 ```
-### 生成store, 然后传入store, 生成Provider， connect 文件: createStore.js 
+### 生成store, 然后传入store, 生成Provider， connect 
 ```
+// 文件: createStore.js 
 import { createProviderAndConnect, createStore } from '../../src/index';
 import stateConfig from './modules';
 const state = createStore(stateConfig);
@@ -46,7 +47,6 @@ const context = createProviderAndConnect(state);
 const Provider = context.Provider;
 const connect = context.connect;
 export {Provider, connect};
-### 首页，以及子组件配置
 ```
 ### 首页，以及子组件配置
 #### 首页
@@ -64,10 +64,12 @@ ReactDOM.render(
 document.getElementById('app'));
 ```
 #### 子组件
+```
 import { connect } from './createStore';
 export default connect(() => {
     // 类似react-redux的mapStateToProps
 })(Component)
+```
 ## API
 ### createProviderAndConnect
 用来生成Provider，以及connect
