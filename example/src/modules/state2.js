@@ -9,6 +9,9 @@ export default {
     },
     actions: {
         async reduce ({ commit, store }, data) {
+            setTimeout(function () {
+                commit('state2/reduce', --store.count)
+            }, 500)
         }
     }
 }

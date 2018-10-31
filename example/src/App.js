@@ -13,7 +13,7 @@ class App extends Component {
         return (
             <div className="App">
                 <button onClick={this.add.bind(this)}>增加state1</button>
-                <button onClick={this.add.bind(this)}>增加state1</button>
+                <button onClick={this.reduce.bind(this)}>减少state2</button>
                 <div>state1的值：{this.props.state1.count}</div>
                 <div>state2的值：{this.props.state2.count}</div>
                 <Route path="/app/component/:count" component={Com} />

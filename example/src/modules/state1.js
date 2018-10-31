@@ -11,7 +11,7 @@ export default {
         async add ({ commit, store }, data) {
             setTimeout(function () {
                 commit('state1/add', ++store.count)
-            }, 2000)
+            }, 500)
         }
     }
 }
