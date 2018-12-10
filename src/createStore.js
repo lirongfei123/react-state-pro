@@ -1,3 +1,4 @@
+/* eslint-disable */
 const co = require('co');
 class Store {
     constructor(modelMaps) {
@@ -24,19 +25,19 @@ class Store {
                 state: {
                     ...this.store[action[0]]
                 },
-            }, params)
+            }, params);
+            this.subscribes.forEach((fn) => {
+                fn(this.store, dispatchAction);
+            });
         });
     }
     commit (dispatchAction, commonAction, params) {
-        const action = commonAction.split('/');
-        if (!this.modelMaps[action[0]].mutations[action[1]]) {
+        const action = dispatchAction.split('/');
+        if (!this.modelMaps[action[0]].mutations[commonAction]) {
             throw(new Error('不存在此action'));
             return;
         }
-        this.modelMaps[action[0]].mutations[action[1]](this.store[action[0]], params);
-        this.subscribes.forEach((fn) => {
-            fn(this.store, dispatchAction);
-        });
+        this.modelMaps[action[0]].mutations[commonAction](this.store[action[0]], params);
     }
     subscribe (fn) {
         this.subscribes.push(fn);

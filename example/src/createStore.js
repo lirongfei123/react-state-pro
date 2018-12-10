@@ -1,4 +1,4 @@
-import { createProviderAndConnect, createStore } from 'react-state-pro'
+import { createProviderAndConnect, createStore } from '../../src/index'
 import stateConfig from './modules'
 const state = createStore(stateConfig)
 const context = createProviderAndConnect(state)

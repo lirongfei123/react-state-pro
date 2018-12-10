@@ -1,4 +1,4 @@
-// @ts-nocheck
+/* eslint-disable */
 import React, { Component } from 'react';
 export default function (Provider, store) {
     class WrapProvider extends Component {

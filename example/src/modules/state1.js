@@ -10,7 +10,7 @@ export default {
     actions: {
         async add ({ commit, store }, data) {
             setTimeout(function () {
-                commit('state1/add', ++store.count)
+                commit('add', ++store.count)
             }, 500)
         }
     }

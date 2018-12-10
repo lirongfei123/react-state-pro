@@ -1,4 +1,4 @@
-// @ts-nocheck
+/* eslint-disable */
 import React, { Component } from 'react';
 import PropChecks from 'prop-checks';
 const diff = require('deep-diff');

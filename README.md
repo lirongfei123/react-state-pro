@@ -29,12 +29,12 @@ config['state1'] = export default {
     actions: {
         async add({commit, store}, {count}) {
             setTimeout(function () {
-                commit('state1/add', store.count + count);
+                commit('add', store.count + count);
             }, 1000);
         },
         async changeUrlParam({commit}, {data}) {
             setTimeout(() => {
-                commit('state1/changeUrlParam', data)
+                commit('changeUrlParam', data)
             }, 2000);
         } 
     },
