@@ -70,7 +70,7 @@ export default function (Consumer) {
                             if (result) {
                                 newParams[path] = this.baseGet(props, result[1]);
                             } else {
-                                newParams[path] = this.baseGet(props, params[path]);
+                                newParams[path] = params[path];
                             }
                         })
                         return newParams;
