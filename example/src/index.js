@@ -9,7 +9,7 @@ ReactDOM.render(
     <Provider>
         <Router history={history}>
             <Switch>
-                <Route path="/app" component={App} />
+                <Route path="/app/:taskId" component={App} />
                 <Redirect to="/app" />
             </Switch>
         </Router>

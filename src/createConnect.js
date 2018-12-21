@@ -62,6 +62,7 @@ export default function (Consumer) {
                 willRequestAction = new Set();
                 oldRequestParams = {};
                 handleParams(params, props) {
+                    props = this.fillProps(props);
                     const reg = /^\{(.*)\}$/;
                     if (params) {
                         const newParams = {};
@@ -88,6 +89,7 @@ export default function (Consumer) {
                         }
                     });
                     if (preset.requireProps && this.store && (ok || willRequestActions.length)) {
+                        // 对props做处理
                         willRequestActions.forEach((actionName) => {
                             const params = this.handleParams(this.oldRequestParams[actionName][0], props);
                             this.oldRequestParams[actionName] = [this.oldRequestParams[actionName][0], params];
@@ -97,6 +99,29 @@ export default function (Consumer) {
                 }
                 setStore(store) {
                     this.store = store;
+                }
+                fillProps(props) {
+                    let newProps = {};
+                    if (this.props.location) {
+                        const search = this.props.location.search;
+                        if (search.trim() !== '') {
+                            const searchObj = search.substring('1').split('&');
+                            searchObj.forEach((value) => {
+                                const temp = value.split('=');
+                                newProps[temp[0]] = temp[1];
+                            })
+                        }
+                    }
+                    if (this.props.match) {
+                        newProps = {
+                            ...newProps,
+                            ...this.props.match.params
+                        }
+                    }
+                    return {
+                        ...newProps,
+                        ...props,
+                    };
                 }
                 render() {
                     return <Consumer>
@@ -120,7 +145,7 @@ export default function (Consumer) {
                                 }
                                 const newProps = mapStateToProps(store.store);
                                 const result = {
-                                    ...this.props,
+                                    ...this.fillProps(this.props),
                                     ...newProps,
                                     dispatch: store.dispatch,
                                     commit: store.commit

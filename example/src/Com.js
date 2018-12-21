@@ -7,6 +7,14 @@ class Com extends Component {
     reduce () {
         this.props.dispatch('state2/reduce')
     }
+    static autoActions = [
+        {
+            name: 'state1/add',
+            params: {
+                taskId: '{taskId}'
+            }
+        }
+    ]
     render () {
         return (
             <div className="Com">
