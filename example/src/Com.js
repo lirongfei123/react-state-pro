@@ -1,24 +1,31 @@
 import React, { Component } from 'react'
+import PropChecks from 'prop-checks'
 import { connect } from './createStore'
 class Com extends Component {
     add () {
         this.props.dispatch('state1/add')
     }
     reduce () {
-        this.props.dispatch('state2/reduce')
+        console.log('2342')
+        const result = this.props.dispatch('state2/reduce')
+        console.log(result)
+    }
+    static requireProps = {
+        taskId1: PropChecks.object.isRequired
     }
     static autoActions = [
         {
             name: 'state1/add',
             params: {
-                taskId: '{taskId}'
+                taskId: '{taskId1}',
+                taskId2: '{taskId2}'
             }
         }
     ]
     render () {
         return (
             <div className="Com">
-                comwerw
+                comwerqwqwqw
             </div>
         )
     }

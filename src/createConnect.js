@@ -63,15 +63,23 @@ export default function (Consumer) {
                 oldRequestParams = {};
                 handleParams(params, props) {
                     props = this.fillProps(props);
-                    const reg = /^\{(.*)\}$/;
                     if (params) {
                         const newParams = {};
                         Object.keys(params).forEach((path) => {
-                            const result = reg.exec(params[path]);
-                            if (result) {
-                                newParams[path] = this.baseGet(props, result[1]);
-                            } else {
-                                newParams[path] = params[path];
+                            const reg1 = /\{(?:[^\}\{]*)\}/g;
+                            const reg = /\{([^\}\{]*)\}/g;
+                            const value = params[path];
+                            if (typeof value === 'string') {
+                                const result = reg1.exec(value);
+                                if (result) {
+                                    newParams[path] = value.replace(reg, (match, key) => {
+                                        return this.baseGet(props, key)
+                                    });
+                                } else {
+                                    newParams[path] = value;
+                                }
+                            } else if (typeof value === 'function') {
+                                newParams[path] = value(props);
                             }
                         })
                         return newParams;

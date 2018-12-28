@@ -9,9 +9,13 @@ export default {
     },
     actions: {
         async reduce ({ commit, store }, data) {
-            setTimeout(function () {
-                commit('reduce', --store.count)
-            }, 500)
+            const result = await new Promise((resolve) => {
+                setTimeout(function () {
+                    resolve('1')
+                }, 1200)
+            })
+            console.log(result)
+            return result
         }
     }
 }

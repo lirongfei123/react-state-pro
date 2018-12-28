@@ -16,7 +16,7 @@ class Store {
     dispatch(dispatchAction, params) {
         const action = dispatchAction.split('/');
         return co(async () => {
-            await this.modelMaps[action[0]].actions[action[1]]({
+            const result = await this.modelMaps[action[0]].actions[action[1]]({
                 commit: this.commit.bind(this, dispatchAction),
                 dispatch: this.dispatch.bind(this),
                 store: {
@@ -29,6 +29,7 @@ class Store {
             this.subscribes.forEach((fn) => {
                 fn(this.store, dispatchAction);
             });
+            return result;
         });
     }
     commit (dispatchAction, commonAction, params) {

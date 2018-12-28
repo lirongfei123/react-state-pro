@@ -7,7 +7,9 @@ class App extends Component {
         this.props.dispatch('state1/add')
     }
     reduce () {
-        this.props.dispatch('state2/reduce')
+        this.props.dispatch('state2/reduce').then((result) => {
+            console.log(result)
+        })
     }
     render () {
         return (
